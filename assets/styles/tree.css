@@ -1,0 +1,8 @@
+#tree {
+    width: 45vw ;
+    height: 70vh;
+    position: absolute;
+    right: 2px;
+
+    border: 1px solid lightgray;
+}

@@ -17,4 +17,8 @@
 ###> symfony/asset-mapper ###
 /public/assets/
 /assets/vendor/
+/node_modules/
 ###< symfony/asset-mapper ###
+
+#IDE
+.idea/
