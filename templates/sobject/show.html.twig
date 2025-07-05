@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Sobject{% endblock %}
+
+{% block body %}
+    <h1>Sobject</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ sobject.id }}</td>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <td>{{ sobject.name }}</td>
+            </tr>
+            <tr>
+                <th>Created</th>
+                <td>{{ sobject.created ? sobject.created|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>TextContent</th>
+                <td>{{ sobject.textContent }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_sobject_index') }}">back to list</a>
+
+    <a href="{{ path('app_sobject_edit', {'id': sobject.id}) }}">edit</a>
+
+    {{ include('sobject/_delete_form.html.twig') }}
+{% endblock %}

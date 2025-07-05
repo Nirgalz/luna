@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Sobject{% endblock %}
+
+{% block body %}
+    <h1>Create new Sobject</h1>
+
+    {{ include('sobject/_form.html.twig') }}
+
+    <a href="{{ path('app_sobject_index') }}">back to list</a>
+{% endblock %}

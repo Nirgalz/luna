@@ -1,5 +1,6 @@
 UX experiment
 
 
-start server
+start server:
+
 symfony server:start

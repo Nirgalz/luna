@@ -31,6 +31,9 @@ class Sobject
     #[ORM\ManyToMany(targetEntity: Tag::class, mappedBy: 'articles')]
     private Collection $tags;
 
+    #[ORM\Column(length: 2550, nullable: true)]
+    private ?string $textContent = null;
+
     public function __construct()
     {
         $this->tags = new ArrayCollection();
@@ -46,7 +49,7 @@ class Sobject
         return $this->name;
     }
 
-    public function setName(string $name): static
+    public function setName(string $name)
     {
         $this->name = $name;
 
@@ -58,7 +61,7 @@ class Sobject
         return $this->created;
     }
 
-    public function setCreated(\DateTime $created): static
+    public function setCreated(\DateTime $created)
     {
         $this->created = $created;
 
@@ -70,7 +73,7 @@ class Sobject
         return $this->author;
     }
 
-    public function setAuthor(?user $author): static
+    public function setAuthor(?user $author)
     {
         $this->author = $author;
 
@@ -85,7 +88,7 @@ class Sobject
         return $this->tags;
     }
 
-    public function addTag(Tag $tag): static
+    public function addTag(Tag $tag)
     {
         if (!$this->tags->contains($tag)) {
             $this->tags->add($tag);
@@ -95,11 +98,23 @@ class Sobject
         return $this;
     }
 
-    public function removeTag(Tag $tag): static
+    public function removeTag(Tag $tag)
     {
         if ($this->tags->removeElement($tag)) {
             $tag->removeArticle($this);
         }
+
+        return $this;
+    }
+
+    public function getTextContent(): ?string
+    {
+        return $this->textContent;
+    }
+
+    public function setTextContent(?string $textContent)
+    {
+        $this->textContent = $textContent;
 
         return $this;
     }
